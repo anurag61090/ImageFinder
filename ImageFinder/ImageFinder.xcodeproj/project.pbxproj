@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,14 @@
 		CE8F49FC2492BF3C0065C397 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8F49FA2492BF3C0065C397 /* LaunchScreen.storyboard */; };
 		CE8F4A072492BF3C0065C397 /* ImageFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F4A062492BF3C0065C397 /* ImageFinderTests.swift */; };
 		CE8F4A122492BF3C0065C397 /* ImageFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F4A112492BF3C0065C397 /* ImageFinderUITests.swift */; };
+		CEAFC9C52493B68B0088792E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFC9C42493B68B0088792E /* APIManager.swift */; };
+		CEAFC9C72493B9550088792E /* ResponseBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFC9C62493B9550088792E /* ResponseBaseModel.swift */; };
+		CEAFC9C92493B9FD0088792E /* ASGetRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFC9C82493B9FD0088792E /* ASGetRequestHandler.swift */; };
+		CEAFC9CB2493C8230088792E /* ASRequestConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFC9CA2493C8230088792E /* ASRequestConstructor.swift */; };
+		CEAFC9CD2493D13F0088792E /* ASRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFC9CC2493D13F0088792E /* ASRequestModel.swift */; };
+		CEAFC9CF2493D5200088792E /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFC9CE2493D5200088792E /* NetworkConstants.swift */; };
+		CEAFC9D12493D9020088792E /* AppReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFC9D02493D9020088792E /* AppReachability.swift */; };
+		CEAFC9D32493DBD90088792E /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFC9D22493DBD90088792E /* SearchResultModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +59,14 @@
 		CE8F4A0D2492BF3C0065C397 /* ImageFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8F4A112492BF3C0065C397 /* ImageFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFinderUITests.swift; sourceTree = "<group>"; };
 		CE8F4A132492BF3C0065C397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEAFC9C42493B68B0088792E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		CEAFC9C62493B9550088792E /* ResponseBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseBaseModel.swift; sourceTree = "<group>"; };
+		CEAFC9C82493B9FD0088792E /* ASGetRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASGetRequestHandler.swift; sourceTree = "<group>"; };
+		CEAFC9CA2493C8230088792E /* ASRequestConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASRequestConstructor.swift; sourceTree = "<group>"; };
+		CEAFC9CC2493D13F0088792E /* ASRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASRequestModel.swift; sourceTree = "<group>"; };
+		CEAFC9CE2493D5200088792E /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		CEAFC9D02493D9020088792E /* AppReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReachability.swift; sourceTree = "<group>"; };
+		CEAFC9D22493DBD90088792E /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3E2AB861C831C4F0B7B4422 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CE8F49E02492BF3A0065C397 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +108,7 @@
 				CE8F4A052492BF3C0065C397 /* ImageFinderTests */,
 				CE8F4A102492BF3C0065C397 /* ImageFinderUITests */,
 				CE8F49EA2492BF3A0065C397 /* Products */,
+				B3E2AB861C831C4F0B7B4422 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +125,7 @@
 		CE8F49EB2492BF3A0065C397 /* ImageFinder */ = {
 			isa = PBXGroup;
 			children = (
+				CEAFC9C32493B6750088792E /* API Manager */,
 				CE8F49EC2492BF3A0065C397 /* AppDelegate.swift */,
 				CE8F49EE2492BF3A0065C397 /* SceneDelegate.swift */,
 				CE8F49F02492BF3A0065C397 /* SearchResultController.swift */,
@@ -109,6 +134,7 @@
 				CE8F49FA2492BF3C0065C397 /* LaunchScreen.storyboard */,
 				CE8F49FD2492BF3C0065C397 /* Info.plist */,
 				CE8F49F52492BF3A0065C397 /* ImageFinder.xcdatamodeld */,
+				CEAFC9D22493DBD90088792E /* SearchResultModel.swift */,
 			);
 			path = ImageFinder;
 			sourceTree = "<group>";
@@ -129,6 +155,20 @@
 				CE8F4A132492BF3C0065C397 /* Info.plist */,
 			);
 			path = ImageFinderUITests;
+			sourceTree = "<group>";
+		};
+		CEAFC9C32493B6750088792E /* API Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CEAFC9C42493B68B0088792E /* APIManager.swift */,
+				CEAFC9C62493B9550088792E /* ResponseBaseModel.swift */,
+				CEAFC9C82493B9FD0088792E /* ASGetRequestHandler.swift */,
+				CEAFC9CA2493C8230088792E /* ASRequestConstructor.swift */,
+				CEAFC9CC2493D13F0088792E /* ASRequestModel.swift */,
+				CEAFC9CE2493D5200088792E /* NetworkConstants.swift */,
+				CEAFC9D02493D9020088792E /* AppReachability.swift */,
+			);
+			path = "API Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +302,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEAFC9CB2493C8230088792E /* ASRequestConstructor.swift in Sources */,
 				CE8F49F12492BF3A0065C397 /* SearchResultController.swift in Sources */,
+				CEAFC9CF2493D5200088792E /* NetworkConstants.swift in Sources */,
+				CEAFC9C72493B9550088792E /* ResponseBaseModel.swift in Sources */,
 				CE8F49ED2492BF3A0065C397 /* AppDelegate.swift in Sources */,
+				CEAFC9D12493D9020088792E /* AppReachability.swift in Sources */,
+				CEAFC9CD2493D13F0088792E /* ASRequestModel.swift in Sources */,
+				CEAFC9C52493B68B0088792E /* APIManager.swift in Sources */,
+				CEAFC9D32493DBD90088792E /* SearchResultModel.swift in Sources */,
+				CEAFC9C92493B9FD0088792E /* ASGetRequestHandler.swift in Sources */,
 				CE8F49EF2492BF3A0065C397 /* SceneDelegate.swift in Sources */,
 				CE8F49F72492BF3A0065C397 /* ImageFinder.xcdatamodeld in Sources */,
 			);
