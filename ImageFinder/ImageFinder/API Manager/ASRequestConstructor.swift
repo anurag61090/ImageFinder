@@ -11,6 +11,8 @@ import UIKit
 
 class ASRequestConstructor {
     
+    
+    // Method to filter Network Callings based on Request Type
     func processRequestFor(_ request: ASRequestModal, callback:@escaping NetworkClosure){
         var request = request
 
@@ -37,25 +39,22 @@ class ASRequestConstructor {
         }
     }
 
-    
+    // Method to handle API Error
     func handleNetworkError( netResponse: ASNetObject, callback: NetworkClosure){
         
         if((netResponse.isSuccess == false)){
             if( (netResponse.serverMessage != nil) && ((netResponse.serverMessage?.count)! > 0) ){
                 
-                let appDelegate = UIApplication.shared.delegate
-                self.showAlertAppDelegate("Ooops!!!", message: netResponse.serverMessage ?? "An Error Occured", buttonTitle: "OK", window: (appDelegate?.window)!!)
+                showAlertAppDelegate("Ooops!!!", message: netResponse.serverMessage ?? "An Error Occured", buttonTitle: "OK", window: UIApplication.shared.windows.first!.rootViewController!)
                 callback(netResponse);
                 
             }else if(netResponse.error != nil){
-                
-                let appDelegate = UIApplication.shared.delegate
                 let userInfo = netResponse.error?.userInfo
                 
                 if(userInfo != nil){
                     let errorMsg = userInfo?["NSLocalizedDescription"] as? String
                     if(errorMsg != nil){
-                        self.showAlertAppDelegate("Ooops!!!", message: errorMsg ?? "An Error Occured", buttonTitle: "OK", window: (appDelegate?.window)!!)
+                        showAlertAppDelegate("Ooops!!!", message: errorMsg ?? "An Error Occured", buttonTitle: "OK", window: UIApplication.shared.windows.first!.rootViewController!)
                         callback(netResponse);
                     }else{
                         
@@ -71,13 +70,7 @@ class ASRequestConstructor {
         }
     }
 
-    
-    func showAlertAppDelegate(_ title : String,message : String,buttonTitle : String,window: UIWindow){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: buttonTitle, style: UIAlertAction.Style.default, handler: nil))
-        window.rootViewController?.present(alert, animated: true, completion: nil)
-    }
-    
+    // Method to Process Request
     func processRequestInfo(_ requestModal : inout ASRequestModal){
         var operationUrl = OperationalURLs.searchUrl
         

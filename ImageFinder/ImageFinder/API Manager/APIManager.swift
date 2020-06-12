@@ -8,34 +8,32 @@
 
 import Foundation
 import UIKit
+import ProgressHUD
 
 class AppNetwork: NSObject {
     
     static let sharedInstance = AppNetwork();
     var requestConstructor : ASRequestConstructor;
     
+    // Initialising Request Constructor
     override init() {
         requestConstructor = ASRequestConstructor();
     }
     
+    // Fetch Response for the request
     func getNetworkResponseFor( _ request:ASRequestModal, callback: @escaping NetworkClosure){
         if AppReachability.isConnecteddToNetwork() {
             requestConstructor.processRequestFor(request, callback: callback);
         } else {
-            self.showAlertAppDelegate("No Internet Connection", message: "There is no network connection", buttonTitle: "OK", window: ((UIApplication.shared.delegate?.window)!)!)
+            showAlertAppDelegate("No Internet Connection", message: "There is no network connection", buttonTitle: "OK", window: UIApplication.shared.windows.first!.rootViewController!)
         }
-    }
-    
-    func showAlertAppDelegate(_ title : String,message : String,buttonTitle : String,window: UIWindow){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: buttonTitle, style: UIAlertAction.Style.default, handler: nil))
-        window.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }
 
 
 class APIManager: NSObject {
     
+    // MARK: API to fetch Images
     class func getImagesList(page: Int, pageDataCount: Int, queryParameter: String, callback: @escaping NetworkClosure) {
         let paramDict: Dictionary<String, String> = ["{PAGE}": "\(page)",
                          "{DATA_COUNT}": "\(pageDataCount)",

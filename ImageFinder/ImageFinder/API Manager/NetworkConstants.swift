@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import ProgressHUD
 
 typealias NetworkClosure = (_ netResponse: ASNetObject)-> Void
 
@@ -28,4 +30,12 @@ struct NetworkConstants {
 struct OperationalURLs {
     
     static let searchUrl = "?key={KEY}&image_type={IMAGE_TYPE}&page={PAGE}&per_page={DATA_COUNT}&q={QUERY_PARAMS}"
+}
+
+func showAlertAppDelegate(_ title : String,message : String,buttonTitle : String,window: UIViewController){
+    let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+    alert.addAction(UIAlertAction(title: buttonTitle, style: UIAlertAction.Style.default, handler: { (action) in
+        ProgressHUD.dismiss()
+    }))
+    window.present(alert, animated: true, completion: nil)
 }

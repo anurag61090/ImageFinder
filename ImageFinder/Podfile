@@ -8,6 +8,9 @@ target 'ImageFinder' do
   # Pods for ImageFinder
 
   pod 'Alamofire'
+  pod 'SDWebImage'
+  pod 'ProgressHUD'
+pod 'DropDown'
 
   target 'ImageFinderTests' do
     inherit! :search_paths

@@ -9,6 +9,8 @@
 import Foundation
 import SystemConfiguration
 
+//MARK: Class To Check Network Reachability
+
 class AppReachability: NSObject {
     
     class func isConnecteddToNetwork() -> Bool {

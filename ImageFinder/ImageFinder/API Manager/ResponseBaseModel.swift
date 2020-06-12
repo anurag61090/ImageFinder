@@ -8,15 +8,16 @@
 
 import Foundation
 
+// MARK: Struct to handle API Response
+
 struct ASNetObject {
     
-    let responseObject:      AnyObject?
-    let serverMessage:       String?
-    var responseString:      String?
-    
+    let responseObject: AnyObject?
+    let serverMessage: String?
+    var responseString: String?
     let statusCode: Int?
-    let error:      NSError?
-    var isSuccess:  Bool?
+    let error: NSError?
+    var isSuccess: Bool?
     
     init(response: AnyObject?, status: Int?, err:NSError?, successful: Bool?,  message: String?) {
         

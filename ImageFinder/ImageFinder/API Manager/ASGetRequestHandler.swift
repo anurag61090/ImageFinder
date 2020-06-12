@@ -11,6 +11,7 @@ import UIKit
 import Alamofire
 
 
+
 struct ASGETRequestConstructor {
     
     static func getResponseForRequest(request: ASRequestModal, callback: @escaping NetworkClosure) {
@@ -29,10 +30,8 @@ struct ASGETRequestConstructor {
                 let data = response.data
                 var datastring = "";
                 if(data != nil){
-                    #if DEBUG
-                        datastring = String(data: data!, encoding: String.Encoding.utf8)!
-                        print(datastring)
-                    #endif
+                    datastring = String(data: data!, encoding: String.Encoding.utf8)!
+                    print(datastring)
                 }else{
                     print("\n\n valid response not found");
                 }
@@ -40,8 +39,6 @@ struct ASGETRequestConstructor {
                 print("************************ Response Results **************************");
                 print(response.result)   // result of response serialization
                 print("************************ Response Results END **************************");
-                
-                print("test");
                 
             #endif
             
@@ -54,11 +51,9 @@ struct ASGETRequestConstructor {
             case .success(let value):
                responseValue = value as AnyObject
                isSuccess = true
-               print("")
             case .failure(let error):
                errorVal = error as NSError
                isSuccess = false
-               print("")
             }
 
             let responsObject = ASNetObject(response: responseValue, status: response.response?.statusCode, err: errorVal, successful: isSuccess, message: message)

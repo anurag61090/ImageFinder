@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: Class to Handle Request Models
+
 class ASRequestModal: NSObject {
     
     var inputParameters: Dictionary<String,Any>?;
