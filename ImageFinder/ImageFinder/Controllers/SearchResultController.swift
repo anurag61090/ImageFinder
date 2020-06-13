@@ -68,6 +68,7 @@ class SearchResultController: UIViewController, UISearchBarDelegate, UISearchCon
         dropdown.dataSource = suggestionsArray
         dropdown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.searchBar.searchTextField.text = item
+            self.presentPage = 1
             self.loadMoreData(initialLoad: true)
             self.searchBar.endEditing(true)
             self.searchModel = nil
@@ -81,6 +82,16 @@ class SearchResultController: UIViewController, UISearchBarDelegate, UISearchCon
     // MARK: UICOLLECTIONVIEW DELEGATES & PROTOCOL
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.searchResultArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let model = self.searchModel {
+            if model.total > self.searchResultArray.count {
+                if indexPath.row > self.searchResultArray.count - 4 {
+                    self.loadMoreData()
+                }
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -144,19 +155,6 @@ class SearchResultController: UIViewController, UISearchBarDelegate, UISearchCon
         self.suggestionsArray.insert(queryParameter, at: 0)
         let userDefaults = UserDefaults.standard
         userDefaults.set(self.suggestionsArray, forKey: "suggestions")
-    }
-    
-    // MARK: UISCROLLVIEW DELEGATE
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-
-        if self.searchResultArray.count < self.searchModel!.totaHits {
-            let offsetY = scrollView.contentOffset.y;
-            let contentHeight = scrollView.contentSize.height;
-
-            if (offsetY > (contentHeight - 2*scrollView.frame.size.height + 500)) {
-                self.loadMoreData()
-            }
-        }
     }
     
     // Method to handle pagination

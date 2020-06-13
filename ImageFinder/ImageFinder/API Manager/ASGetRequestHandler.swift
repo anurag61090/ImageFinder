@@ -38,7 +38,6 @@ struct ASGETRequestConstructor {
                    }
                    
                    print("************************ Response Results **************************");
-                   print(response.result)   // result of response serialization
                    print("************************ Response Results END **************************");
                    
                #endif
