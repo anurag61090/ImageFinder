@@ -78,7 +78,7 @@ class SearchResultController: UIViewController, UISearchBarDelegate, UISearchCon
         dropdown.show()
     }
     
-    // MARK: UICOLLECTIONVIEW DELEGATES
+    // MARK: UICOLLECTIONVIEW DELEGATES & PROTOCOL
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.searchResultArray.count
     }

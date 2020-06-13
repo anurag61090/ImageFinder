@@ -30,6 +30,7 @@ class ImageDetailController: UIViewController, UICollectionViewDataSource, UICol
         self.index = index
     }
     
+    // MARK: UICOLLECTIONVIEW DELEGATES & PROTOCOL
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageArray.count
     }
