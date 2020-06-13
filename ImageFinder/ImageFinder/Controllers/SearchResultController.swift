@@ -87,7 +87,7 @@ class SearchResultController: UIViewController, UISearchBarDelegate, UISearchCon
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let model = self.searchModel {
             if model.total > self.searchResultArray.count {
-                if indexPath.row > self.searchResultArray.count - 4 {
+                if indexPath.row > self.searchResultArray.count - 2 {
                     self.loadMoreData()
                 }
             }

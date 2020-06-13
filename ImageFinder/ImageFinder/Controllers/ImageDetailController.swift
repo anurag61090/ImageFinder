@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageDetailController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ImageDetailController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
@@ -39,6 +39,11 @@ class ImageDetailController: UIViewController, UICollectionViewDataSource, UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCell
         cell?.setImageForDetail(searchData: self.imageArray[indexPath.row])
         return cell!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let frameSize = collectionView.frame.size
+        return CGSize(width: frameSize.width, height: frameSize.height)
     }
     
     @IBAction func dismissController(sender: UIButton) {
