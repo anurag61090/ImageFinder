@@ -20,7 +20,7 @@ class SearchResultController: UIViewController, UISearchBarDelegate, UISearchCon
     var searchModel: SearchResultModel?
     var searchResultArray: [SearchResult] = []
     var presentPage: Int = 1
-    var PAGE_SIZE = 15
+    var PAGE_SIZE = 20
     var suggestionsArray = [String]()
 
     override func viewDidLoad() {
